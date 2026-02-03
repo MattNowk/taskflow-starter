@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow - Gestion de tâches</title>
+  <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>TaskFlow</h1>
+      <p class="subtitle">Gérez vos tâches simplement</p>
+    </header>
+
+    <main class="main">
+      <form id="task-form" class="task-form">
+        <input
+          type="text"
+          id="task-input"
+          placeholder="Ajouter une nouvelle tâche..."
+          required
+          autocomplete="off"
+        >
+        <select id="task-priority">
+          <option value="low">Basse</option>
+          <option value="medium" selected>Moyenne</option>
+          <option value="high">Haute</option>
+        </select>
+        <button type="submit">Ajouter</button>
+      </form>
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Toutes</button>
+        <button class="filter-btn" data-filter="active">Actives</button>
+        <button class="filter-btn" data-filter="completed">Terminées</button>
+      </div>
+
+      <ul id="task-list" class="task-list"></ul>
+
+      <footer class="stats">
+        <span id="task-count">0 tâche(s)</span>
+        <button id="clear-completed" class="clear-btn">Supprimer terminées</button>
+      </footer>
+    </main>
+  </div>
+
+  <script type="module" src="/src/app.js"></script>
+</body>
+</html>
