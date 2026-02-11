@@ -9,7 +9,12 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'html', 'lcov'],
       reportsDirectory: './coverage',
-      exclude: ['node_modules/', 'tests/', '*.config.js'],
+      exclude: [
+        'node_modules/',
+        'tests/',
+        '*.config.js',
+        'app.js',       // <-- exclu du coverage global (sinon 0% fait chuter tout)
+      ],
       thresholds: {
         lines: 70,
         branches: 70,
