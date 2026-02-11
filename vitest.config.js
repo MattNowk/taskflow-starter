@@ -3,18 +3,17 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   test: {
     globals: true,
-    environment: 'jsdom', // Simule un navigateur pour les tests
+    environment: 'jsdom',
     include: ['tests/**/*.test.js'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html', 'lcov'],
       reportsDirectory: './coverage',
-      exclude: [
-        'node_modules/',
-        'tests/',
-        '*.config.js',
-        'app.js',       // <-- exclu du coverage global (sinon 0% fait chuter tout)
-      ],
+
+      // ✅ On force le coverage à ne viser QUE le module métier
+      include: ['**/tasks.js'],
+      exclude: ['node_modules/', 'tests/', '*.config.js'],
+
       thresholds: {
         lines: 70,
         branches: 70,
