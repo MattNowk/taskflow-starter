@@ -2,7 +2,7 @@
 
 > Application de gestion de tâches - Projet fil rouge CI/CD
 
-[![CI](https://github.com/VOTRE-USER/VOTRE-REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/VOTRE-USER/VOTRE-REPO/actions)
+[![CI](https://github.com/MattNowk/taskflow-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/MattNowk/taskflow-starter/actions/workflows/ci.yml)
 [![Coverage](https://img.shields.io/badge/coverage-%3E70%25-brightgreen)](./coverage/)
 
 ## Description
@@ -38,8 +38,6 @@ npm run dev
 | `npm run build` | Build pour la production |
 | `npm run preview` | Prévisualise le build |
 | `npm run lint` | Vérifie le code avec ESLint |
-| `npm run lint:fix` | Corrige automatiquement les erreurs |
-| `npm run format` | Formate le code avec Prettier |
 | `npm run test` | Lance les tests |
 | `npm run test:watch` | Lance les tests en mode watch |
 | `npm run test:coverage` | Lance les tests avec couverture |
@@ -63,18 +61,19 @@ taskflow/
 ## Progression CI/CD
 
 ### Jour 1 : Premier workflow CI
-- [ ] Créer `.github/workflows/ci.yml`
-- [ ] Workflow : checkout → install → lint
+- [x] Créer `.github/workflows/ci.yml`
+- [x] Workflow : checkout → install → lint
 
 ### Jour 2 : Configuration avancée
-- [ ] Ajouter job `build`
-- [ ] Matrix Node 18/20/22
-- [ ] Trigger `workflow_dispatch`
+- [x] Ajouter job `build`
+- [x] Matrix Node 18/20/22
+- [x] Trigger `workflow_dispatch`
 
 ### Jour 3 : Tests et qualité
-- [ ] Ajouter job `test`
-- [ ] Atteindre coverage >= 70%
-- [ ] Upload rapport en artifact
+- [x] Ajouter job `test`
+- [x] Atteindre coverage >= 70%
+- [x] Upload rapport en artifact
+- [x] Ajouter job `e2e` (Playwright)
 
 ### Jour 4 : Branches et releases
 - [ ] Configurer branch protection
