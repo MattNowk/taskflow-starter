@@ -95,3 +95,17 @@ export function sortByPriority(tasks) {
     (a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]
   )
 }
+
+/**
+ * Nouvelle feature TP4 :
+ * Filtrer les tâches par priorité
+ */
+export function filterByPriority(tasks, priority) {
+  if (priority === 'all') return tasks
+
+  if (!['low', 'medium', 'high'].includes(priority)) {
+    return tasks
+  }
+
+  return tasks.filter((task) => task.priority === priority)
+}
