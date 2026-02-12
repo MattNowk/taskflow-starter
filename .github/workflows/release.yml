@@ -36,11 +36,29 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Debug dist content
+        run: |
+          echo "== root =="
+          ls -la
+          echo "== dist =="
+          ls -la dist || true
+          echo "== dist tree =="
+          find dist -maxdepth 3 -type f || true
+
+      - name: Archive dist
+        run: |
+          if [ -d "dist" ]; then
+            zip -r dist.zip dist
+          else
+            echo "dist/ folder not found!"
+            exit 1
+          fi
+
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
           generate_release_notes: true
           files: |
-            dist/**
+            dist.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
