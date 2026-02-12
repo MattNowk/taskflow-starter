@@ -10,6 +10,7 @@ import {
   loadTasks,
   saveTasks,
   sortByPriority,
+  filterByPriority,
 } from '../src/tasks.js'
 
 describe('Module tasks.js', () => {
@@ -46,7 +47,9 @@ describe('Module tasks.js', () => {
     })
 
     it('throw si texte uniquement espaces', () => {
-      expect(() => createTask('   ')).toThrow('Le texte de la tâche ne peut pas être vide')
+      expect(() => createTask('   ')).toThrow(
+        'Le texte de la tâche ne peut pas être vide'
+      )
     })
 
     it('throw si priorité invalide', () => {
@@ -126,6 +129,30 @@ describe('Module tasks.js', () => {
     })
   })
 
+  describe('filterByPriority', () => {
+    it('retourne tout si priority = all', () => {
+      const tasks = [
+        { id: '1', priority: 'low' },
+        { id: '2', priority: 'high' },
+      ]
+      expect(filterByPriority(tasks, 'all')).toHaveLength(2)
+    })
+
+    it('filtre correctement low/medium/high', () => {
+      const tasks = [
+        { id: '1', priority: 'low' },
+        { id: '2', priority: 'high' },
+        { id: '3', priority: 'high' },
+      ]
+      expect(filterByPriority(tasks, 'high')).toHaveLength(2)
+    })
+
+    it('si priorité invalide -> retourne tout', () => {
+      const tasks = [{ id: '1', priority: 'low' }]
+      expect(filterByPriority(tasks, 'weird')).toHaveLength(1)
+    })
+  })
+
   describe('clearCompleted', () => {
     it('retire toutes les tâches terminées', () => {
       const t1 = createTask('A')
@@ -144,7 +171,11 @@ describe('Module tasks.js', () => {
       const t2 = createTask('Done')
       t2.completed = true
 
-      expect(countTasks([t1, t2])).toEqual({ total: 2, active: 1, completed: 1 })
+      expect(countTasks([t1, t2])).toEqual({
+        total: 2,
+        active: 1,
+        completed: 1,
+      })
     })
 
     it('zéro si liste vide', () => {
@@ -179,9 +210,12 @@ describe('Module tasks.js', () => {
     })
 
     it("n'explose pas si localStorage.setItem throw", () => {
-      const spy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
-        throw new Error('boom')
-      })
+      const spy = vi
+        .spyOn(Storage.prototype, 'setItem')
+        .mockImplementation(() => {
+          throw new Error('boom')
+        })
+
       expect(() => saveTasks([{ a: 1 }])).not.toThrow()
       spy.mockRestore()
     })

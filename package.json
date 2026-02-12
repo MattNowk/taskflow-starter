@@ -10,6 +10,7 @@
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
+    "test": "vitest run",
     "test:e2e": "playwright test"
   },
   "devDependencies": {
