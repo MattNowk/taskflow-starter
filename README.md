@@ -3,6 +3,7 @@
 > Application de gestion de tâches - Projet fil rouge CI/CD
 
 [![CI](https://github.com/MattNowk/taskflow-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/MattNowk/taskflow-starter/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/MattNowk/taskflow-starter)](https://github.com/MattNowk/taskflow-starter/releases)
 [![Coverage](https://img.shields.io/badge/coverage-%3E70%25-brightgreen)](./coverage/)
 
 ## Description
@@ -76,9 +77,9 @@ taskflow/
 - [x] Ajouter job `e2e` (Playwright)
 
 ### Jour 4 : Branches et releases
-- [ ] Configurer branch protection
-- [ ] Créer workflow release
-- [ ] Publier v1.0.0
+- [x] Configurer branch protection
+- [x] Créer workflow release
+- [x] Publier v1.0.0
 
 ### Jour 5 : Déploiement
 - [ ] Compléter le Dockerfile
