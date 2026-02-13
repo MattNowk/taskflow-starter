@@ -82,9 +82,9 @@ taskflow/
 - [x] Publier v1.0.0
 
 ### Jour 5 : Déploiement
-- [ ] Compléter le Dockerfile
-- [ ] Push image sur ghcr.io
-- [ ] Déployer sur GitHub Pages
+- [x] Compléter le Dockerfile
+- [x] Push image sur ghcr.io
+- [x] Déployer sur GitHub Pages
 
 ## Fonctionnalités de l'application
 
