@@ -6,6 +6,16 @@
 [![Release](https://img.shields.io/github/v/release/MattNowk/taskflow-starter)](https://github.com/MattNowk/taskflow-starter/releases)
 [![Coverage](https://img.shields.io/badge/coverage-%3E70%25-brightgreen)](./coverage/)
 
+## 🚀 Demo
+
+- **GitHub Pages** : https://mattnowk.github.io/taskflow-starter/
+- **Render** : https://taskflow-starter-main.onrender.com/
+
+## 🐳 Docker
+
+docker pull ghcr.io/mattnowk/taskflow-starter:main
+docker run -p 8080:80 ghcr.io/mattnowk/taskflow-starter:main
+
 ## Description
 
 TaskFlow est une application web de gestion de tâches (todo list) que vous allez enrichir tout au long de la formation CI/CD.
