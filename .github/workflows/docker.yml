@@ -56,9 +56,6 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Deploy to Render
+      - name: Deploy to Render (webhook)
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-        uses: gh-actions-workflows/deploy-docker-render@v1.1
-        with:
-          deploy-hook: ${{ secrets.RENDER_DEPLOY_HOOK }}
-          image-url: ghcr.io/mattnowk/taskflow-starter:main
+        run: curl -fsSL -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
