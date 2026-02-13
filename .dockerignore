@@ -5,3 +5,6 @@ coverage
 .github
 *.md
 .env*
+.vscode
+playwright-report
+test-results
